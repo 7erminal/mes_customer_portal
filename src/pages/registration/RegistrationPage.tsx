@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Col, FloatingLabel, ProgressBar, Row, Form } from "react-bootstrap";
 import InvertedPrimaryButton from "../../components/widgets/InvertedPrimaryButton";
-import Loading from "../../components/widgets/Loading";
 import ApplicationContext from "../../resources/ApplicationContext.js";
 // @ts-ignore
 import Api from "../../apis/apis"

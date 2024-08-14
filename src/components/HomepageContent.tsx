@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import SideMenu from "./SideMenu";
 import HeadNav from "./HeadNav";
 import Footer from "./Footer";

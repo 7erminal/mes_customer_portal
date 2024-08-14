@@ -1,7 +1,6 @@
 import React from "react";
 import SideMenu from "./SideMenu";
 import HeadNav from "./HeadNav";
-import Footer from "./Footer";
 import CreateCampaign from "./CreateCampaign";
 import { Row } from "react-bootstrap";
 

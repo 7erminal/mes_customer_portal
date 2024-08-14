@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Route, Routes, Navigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion"; 
 
 import HomePage from "./pages/HomePage";
@@ -11,8 +11,6 @@ import ApplicationContext from "./resources/ApplicationContext";
 import CampaignsPage from "./pages/CampaignsPage";
 
 const ARoutes: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [dataLoaded, setDataLoaded] = useState(false)
   const applicationContext = useContext(ApplicationContext)
 
 

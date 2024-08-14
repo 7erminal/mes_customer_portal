@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Col, Container, FloatingLabel, ProgressBar, Row, Form } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Col, FloatingLabel, ProgressBar, Row, Form } from "react-bootstrap";
 import InvertedPrimaryButton from "../../components/widgets/InvertedPrimaryButton";
 import ApplicationContext from "../../resources/ApplicationContext.js";
 // @ts-ignore
@@ -7,7 +7,6 @@ import Api from "../../apis/apis"
 // @ts-ignore
 import { ROUTES } from "../../apis/endpoints.js"
 import NotificationModal from "../../components/widgets/NotificationModal.js";
-import Loading from "../../components/widgets/Loading.js";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = ()=>{

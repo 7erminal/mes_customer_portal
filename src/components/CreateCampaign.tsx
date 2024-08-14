@@ -1,21 +1,8 @@
-import React, { useRef, useState } from "react";
-import Carousel from 'react-bootstrap/Carousel';
-import PrimaryButton from "./widgets/PrimaryButton";
+import React from "react";
 import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import SecondaryButton from "./widgets/SecondaryButton";
 
 const CreateCampaign: React.FC = ()=>{
-    const [index, setIndex] = useState(0);
-    const carousalRef = useRef<any>(null);
-
-    const handleSelect = () => {
-        console.log("Selected index is ")
-        // console.log(carousalRef.current!.next())
-        const ev: any = carousalRef.current!
-        ev.next()
-        // setIndex(selectedIndex);
-    };
-
     return <div className="create-campaign">
         <Row className="my-4">
             <Col xs={12} md={12} className="my-2">
