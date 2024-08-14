@@ -1,0 +1,6 @@
+@media(min-width: 900px) {
+    .login-form-section{
+        padding-left: 115px;
+        padding-right: 115px;
+    }
+}

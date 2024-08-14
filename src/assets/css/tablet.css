@@ -1,0 +1,6 @@
+@media (min-width: 481px) and (max-width: 899px) {
+    .login-form-section{
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+}
