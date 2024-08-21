@@ -1,13 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FloatingLabel, Modal, Form, Row, Col } from "react-bootstrap";
 import ApplicationContext from "../resources/ApplicationContext";
 import InvertedPrimaryButton from "./widgets/InvertedPrimaryButton";
-import NotificationModal from "./widgets/NotificationModal";
 // @ts-ignore
 import Api from "../apis/apis"
 // @ts-ignore
 import { ROUTES } from "../apis/endpoints"
-import VerifyProfile2 from "./VerifyProfile2";
 
 type Props = {
     show: boolean

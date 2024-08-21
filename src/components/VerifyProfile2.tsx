@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { FloatingLabel, Modal, Form, Row, Col } from "react-bootstrap";
 import ApplicationContext from "../resources/ApplicationContext";
 import InvertedPrimaryButton from "./widgets/InvertedPrimaryButton";
-import NotificationModal from "./widgets/NotificationModal";
 // @ts-ignore
 import Api from "../apis/apis.js"
 // @ts-ignore

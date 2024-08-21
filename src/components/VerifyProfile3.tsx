@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Modal, Form, Row, Col } from "react-bootstrap";
 import ApplicationContext from "../resources/ApplicationContext";
 import InvertedPrimaryButton from "./widgets/InvertedPrimaryButton";
