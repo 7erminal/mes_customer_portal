@@ -29,6 +29,34 @@ export type ApplicationContextProps = {
     setDob: Dispatch<SetStateAction<string>>
     setPhoneNumber: Dispatch<SetStateAction<string>>
     registerUser: (e: React.FormEvent<HTMLFormElement>)=>Promise<boolean>
+    logout: ()=>void,
+    getUserDetails: ()=>Promise<void>
+
+    companyName: string
+    setCompanyName: Dispatch<SetStateAction<string>>
+    businessRegistrationNumber: string
+    setBusinessRegistrationNumber: Dispatch<SetStateAction<string>>
+    natureOfbusiness: string
+    setNatureOfBusiness: Dispatch<SetStateAction<string>>
+    streetAddress: string
+    setStreetAddress: Dispatch<SetStateAction<string>>
+    postalAddress: string
+    setPostalAddress: Dispatch<SetStateAction<string>>
+    rphoneNumber: string
+    setRphoneNumber: Dispatch<SetStateAction<string>>
+    alternatePhoneNumber: string
+    setAlternatePhoneNumber: Dispatch<SetStateAction<string>>
+    numberOfDirectors: string
+    setNumberOfDirectors: Dispatch<SetStateAction<string>>
+    directorIDs: FileList | undefined | null
+    setDirectorIDs: Dispatch<SetStateAction<FileList | undefined | null>>
+    certCompanyProfile: File | undefined | null
+    setCertCompanyProfile: Dispatch<SetStateAction<File | undefined | null>>
+    certOfCorporation: File | undefined | null
+    setCertOfCorporation: Dispatch<SetStateAction<File | undefined | null>>
+    certCommenceBusiness: File | undefined | null
+    setCertCommenceBusiness: Dispatch<SetStateAction<File | undefined | null>>
+    clearForm: ()=>void
 }
 
 export type User = {

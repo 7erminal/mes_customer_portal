@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ApplicationContext from "../resources/ApplicationContext";
 
 type Props = {
@@ -7,6 +7,13 @@ type Props = {
 }
 const SideMenu: React.FC<Props> = ({page})=>{
     const applicationContext = useContext(ApplicationContext)
+    const navigate = useNavigate()
+
+    const logout = ()=>{
+      if(applicationContext?.logout()){
+        navigate('/login')
+      }
+    }
     
     return <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
     <div className="sidenav-header">
@@ -153,7 +160,7 @@ const SideMenu: React.FC<Props> = ({page})=>{
           </a>
         </li> */}
         <li className="nav-item">
-          <Link className="nav-link  " to="/login">
+          <a className="nav-link  " href="#" onClick={logout}>
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <title>spaceship</title>
@@ -172,7 +179,7 @@ const SideMenu: React.FC<Props> = ({page})=>{
               </svg>
             </div>
             <span className="nav-link-text ms-1">Sign Out</span>
-          </Link>
+          </a>
         </li>
       </ul>
     </div>

@@ -1,17 +1,38 @@
 import React, { useContext, useState } from "react";
-import ApplicationContext from "../resources/ApplicationContext.js";
-import VerifyProfile from "./VerifyProfile.js";
+import ApplicationContext from "../resources/ApplicationContext";
+import VerifyProfile from "./VerifyProfile";
+import VerifyProfile2 from "./VerifyProfile2";
+import VerifyProfile3 from "./VerifyProfile3";
 
 const ProfileHeaderSummary: React.FC = ()=>{
     const [showVerifyProfileModal, setShowVerifyProfileModal] = useState(false);
+    const [showVerifyProfile2Modal, setShowVerifyProfile2Modal] = useState(false);
+    const [showVerifyProfile3Modal, setShowVerifyProfile3Modal] = useState(false);
     const applicationContext = useContext(ApplicationContext)
 
     const handleVerifyProfileClose = () => setShowVerifyProfileModal(false);
     const handleVerifyProfileShow = () => setShowVerifyProfileModal(true);
+
+    const handleVerifyProfile2Close = () => setShowVerifyProfile2Modal(false);
+    const handleVerifyProfile2Show = () => setShowVerifyProfile2Modal(true);
+
+    const handleVerifyProfile3Close = () => setShowVerifyProfile3Modal(false);
+    const handleVerifyProfile3Show = () => setShowVerifyProfile3Modal(true);
+
+    const proceed = (page: number)=>{
+      if(page==2){
+        handleVerifyProfileClose()
+        handleVerifyProfile2Show()
+      }
+      if(page==3){
+        handleVerifyProfile2Close()
+        handleVerifyProfile3Show()
+      }
+    }
     
     return <div className="container-fluid">
-    <div className="page-header min-height-300 border-radius-xl mt-4" style={{backgroundImage: "url('../assets/img/curved-images/curved0.jpg')", backgroundPositionY: "50%"}}>
-      <span className="mask bg-gradient-primary opacity-6"></span>
+    <div className="page-header min-height-300 border-radius-xl mt-4">
+      <span className="mask bg-gradient-primary"></span>
     </div>
     <div className="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
       <div className="row gx-4" style={{width: '100%'}}>
@@ -118,7 +139,9 @@ const ProfileHeaderSummary: React.FC = ()=>{
         </div>
       </div>
     </div>
-    <VerifyProfile show={showVerifyProfileModal} handleClose={handleVerifyProfileClose} />
+    <VerifyProfile show={showVerifyProfileModal} handleClose={handleVerifyProfileClose} proceed={proceed} />
+    <VerifyProfile2 show={showVerifyProfile2Modal} handleClose={handleVerifyProfile2Close} proceed={proceed}/>
+    <VerifyProfile3 show={showVerifyProfile3Modal} handleClose={handleVerifyProfile3Close}/>
   </div>
 }
 
