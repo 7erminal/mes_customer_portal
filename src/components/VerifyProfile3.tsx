@@ -34,7 +34,7 @@ const VerifyProfile3: React.FC<Props> = ({show, handleClose})=>{
         const formData: any = new FormData();
 
         console.log("DOES FILE HOLD??")
-        console.log(applicationContext!.rphoneNumber!)
+        console.log(applicationContext!.directorIDs!)
 
         formData.append('userid', applicationContext!.user!.UserId!.toString())
         formData.append('companyName', applicationContext!.companyName)
@@ -45,10 +45,13 @@ const VerifyProfile3: React.FC<Props> = ({show, handleClose})=>{
         formData.append('postalAddress',applicationContext!.postalAddress)
         formData.append('alternatePhoneNumber',applicationContext!.alternatePhoneNumber)
         formData.append('numberOfDirectors',applicationContext!.numberOfDirectors)
-        formData.append('directorIDs',applicationContext!.directorIDs!)
         formData.append('certCompanyProfile',applicationContext!.certCompanyProfile!)
         formData.append('certOfCorporation',applicationContext!.certOfCorporation!)
         formData.append('certCommenceBusiness',applicationContext!.certCommenceBusiness!)
+
+        for(var i=0; i<applicationContext!.directorIDs!.length; i++){
+            formData.append('directorIDs',applicationContext!.directorIDs![i])
+        }
 
         applicationContext?.setLoading(true)
   
