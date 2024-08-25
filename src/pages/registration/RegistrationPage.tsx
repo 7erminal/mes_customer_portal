@@ -111,7 +111,7 @@ const RegistrationPage: React.FC = ()=>{
                                 label="Password"
                                 className="mb-3"
                             >
-                                <Form.Control type="password" value={applicationContext?.password} onChange={(e)=>applicationContext?.setPassword(e.target.value)} placeholder="Password" className="custom-input-login-r" required/>
+                                <Form.Control type="password" defaultValue={applicationContext?.password} onChange={(e)=>applicationContext?.setPassword(e.target.value)} placeholder="Password" className="custom-input-login-r" required/>
                             </FloatingLabel>
                             <div style={{width: '100%', alignItems: 'stretch', display: 'flex', flexDirection: 'column'}}><InvertedPrimaryButton type="submit" title="Sign Up" /></div>
                         </Form>
