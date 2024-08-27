@@ -48,6 +48,8 @@ export type ApplicationContextProps = {
     setAlternatePhoneNumber: Dispatch<SetStateAction<string>>
     numberOfDirectors: string
     setNumberOfDirectors: Dispatch<SetStateAction<string>>
+    userIdFile: File | undefined | null
+    setUserIdFile: Dispatch<SetStateAction<File | undefined | null>>
     directorIDs: FileList | undefined | null
     setDirectorIDs: Dispatch<SetStateAction<FileList | undefined | null>>
     certCompanyProfile: File | undefined | null
@@ -57,6 +59,9 @@ export type ApplicationContextProps = {
     certCommenceBusiness: File | undefined | null
     setCertCommenceBusiness: Dispatch<SetStateAction<File | undefined | null>>
     clearForm: ()=>void
+
+    notificationHandler: NotificationHandler | undefined
+    setNotificationHandler: Dispatch<SetStateAction<NotificationHandler | undefined>>
 }
 
 export type User = {
@@ -70,4 +75,9 @@ export type User = {
     Dob: string
     Address: string
     IsVerified: boolean
+}
+
+export type NotificationHandler = {
+    path: string
+    action: ()=>void
 }

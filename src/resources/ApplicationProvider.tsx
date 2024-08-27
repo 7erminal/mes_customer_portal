@@ -1,6 +1,6 @@
 import React, { ReactNode, useState, useEffect } from "react";
 import ApplicationContext from "./ApplicationContext";
-import {User} from './types/applicationTypes';
+import {NotificationHandler, User} from './types/applicationTypes';
 // @ts-ignore
 import Api from "../apis/apis"
 // @ts-ignore
@@ -38,6 +38,9 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
   const [certCompanyProfile, setCertCompanyProfile] = useState<File | undefined | null>()
   const [certOfCorporation, setCertOfCorporation] = useState<File | undefined | null>()
   const [certCommenceBusiness, setCertCommenceBusiness] = useState<File | undefined | null>()
+  const [userIdFile, setUserIdFile] = useState<File | undefined | null>()
+
+  const [notificationHandler, setNotificationHandler] = useState<NotificationHandler>()
 
 
   // Check if user is logged in and has data
@@ -46,6 +49,7 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
       getUserDetails()
     }
   },[])
+  
 
     // Show Side Nav
   const showSideNav = () =>{
@@ -93,6 +97,10 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
             if(response.data.StatusCode == 200){
                 setSuccessMessage(response.data.StatusDesc)
                 setShowSuccessMessage(true)
+                setNotificationHandler({action: ()=>{
+                  setShowSuccessMessage(false)
+                  setSuccessMessage("")
+                }, path: '/login'})
                 // window.location.href = "http://localhost:5174/"
                 // navigate('/')
                 setUser(response.data.User)
@@ -100,12 +108,21 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
                 sessionStorage.setItem("user_username", username)
                 returnval = true
             } else {
+              console.log("Authentication failed")
                 setErrorMessage(response.data.StatusDesc)
                 setShowErrorMessage(true)
+                setNotificationHandler({action: ()=>{
+                  setShowErrorMessage(false)
+                  setErrorMessage("")
+                }, path: ''})
             }
         } else {
             setErrorMessage("Sorry...something went wrong. Please try again")
             setShowErrorMessage(true)
+            setNotificationHandler({action: ()=>{
+              setShowErrorMessage(false)
+              setErrorMessage("")
+            }, path: ''})
         }
       }).catch((error: any)=> {
         setLoading(false)
@@ -151,11 +168,20 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
               if(response.data.StatusCode == 200){
                   setSuccessMessage(response.data.StatusDesc)
                   setShowSuccessMessage(true);
+                  setNotificationHandler({action: ()=>{
+                    setShowSuccessMessage(false)
+                    setSuccessMessage("")
+                  }, path: '/login'})
+
                   returnval = true;
               }
           } else {
             setErrorMessage(response.data.StatusDesc)
             setShowErrorMessage(true)
+            setNotificationHandler({action: ()=>{
+              setShowErrorMessage(false)
+              setErrorMessage("")
+            }, path: ''})
           }
         }).catch((error: any)=> {
           setLoading(false)
@@ -282,7 +308,11 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
             setCertOfCorporation,
             certCommenceBusiness,
             setCertCommenceBusiness,
-            clearForm
+            clearForm,
+            userIdFile,
+            setUserIdFile,
+            notificationHandler,
+            setNotificationHandler
           }}>
           {children}
         </ApplicationContext.Provider>

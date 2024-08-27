@@ -6,22 +6,12 @@ import ApplicationContext from "../../resources/ApplicationContext.js";
 import Api from "../../apis/apis"
 // @ts-ignore
 import { ROUTES } from "../../apis/endpoints.js"
-import NotificationModal from "../../components/widgets/NotificationModal.js";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage: React.FC = ()=>{
     const applicationContext = useContext(ApplicationContext)
 
     const navigate = useNavigate()
-
-    const handleSuccessMessageClose = ()=>{
-        navigate("/login")
-    }
-
-    const handleErrorMessageClose = ()=>{
-        applicationContext?.setErrorMessage("")
-        applicationContext?.setShowErrorMessage(false)
-    }
 
     const login = async (e: React.FormEvent<HTMLFormElement>)=>{
         const resp = await applicationContext?.login(e)
@@ -66,10 +56,6 @@ const LoginPage: React.FC = ()=>{
                 </Col>
             </Row>
         {/* </Container> */}
-        {/* Success Message */}
-        <NotificationModal title="Success" titleColor="#2895FC" message={applicationContext!.successMessage} show={applicationContext!.showSuccessMessage} buttonText="OK" navigateTo={handleSuccessMessageClose} />
-        {/* Error Message */}
-        <NotificationModal title="Error" titleColor="#EC7063" message={applicationContext!.errorMessage} show={applicationContext!.showErrorMessage} buttonText="OK" navigateTo={handleErrorMessageClose} />
     </div>
 }
 

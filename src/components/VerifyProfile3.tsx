@@ -34,7 +34,7 @@ const VerifyProfile3: React.FC<Props> = ({show, handleClose})=>{
         const formData: any = new FormData();
 
         console.log("DOES FILE HOLD??")
-        console.log(applicationContext!.directorIDs!)
+        console.log(applicationContext!.userIdFile!)
 
         formData.append('userid', applicationContext!.user!.UserId!.toString())
         formData.append('companyName', applicationContext!.companyName)
@@ -48,6 +48,7 @@ const VerifyProfile3: React.FC<Props> = ({show, handleClose})=>{
         formData.append('certCompanyProfile',applicationContext!.certCompanyProfile!)
         formData.append('certOfCorporation',applicationContext!.certOfCorporation!)
         formData.append('certCommenceBusiness',applicationContext!.certCommenceBusiness!)
+        formData.append('userIdFile',applicationContext!.userIdFile!)
 
         for(var i=0; i<applicationContext!.directorIDs!.length; i++){
             formData.append('directorIDs',applicationContext!.directorIDs![i])
@@ -66,10 +67,20 @@ const VerifyProfile3: React.FC<Props> = ({show, handleClose})=>{
                     console.log("Success!")
                     applicationContext?.setSuccessMessage(response.data.StatusDesc)
                     applicationContext?.setShowSuccessMessage(true);
+
+                    applicationContext?.setNotificationHandler({action: ()=>{
+                        applicationContext?.setShowSuccessMessage(false)
+                        applicationContext?.setSuccessMessage("")
+                        handleClose()
+                      }, path: ''})
                 }
             } else {
                 applicationContext?.setErrorMessage(response.data.StatusDesc)
                 applicationContext?.setShowErrorMessage(true)
+                applicationContext?.setNotificationHandler({action: ()=>{
+                    applicationContext?.setShowErrorMessage(false)
+                    applicationContext?.setErrorMessage("")
+                  }, path: ''})
             }
           }).catch((error: any)=> {
             applicationContext?.setLoading(false)
@@ -77,6 +88,10 @@ const VerifyProfile3: React.FC<Props> = ({show, handleClose})=>{
             console.log(error)
             applicationContext?.setErrorMessage("Sorry...something went wrong. Please try again")
             applicationContext?.setShowErrorMessage(true)
+            applicationContext?.setNotificationHandler({action: ()=>{
+                applicationContext?.setShowErrorMessage(false)
+                applicationContext?.setErrorMessage("")
+              }, path: ''})
           })
     }
 

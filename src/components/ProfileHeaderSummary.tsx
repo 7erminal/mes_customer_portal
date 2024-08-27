@@ -3,15 +3,20 @@ import ApplicationContext from "../resources/ApplicationContext";
 import VerifyProfile from "./VerifyProfile";
 import VerifyProfile2 from "./VerifyProfile2";
 import VerifyProfile3 from "./VerifyProfile3";
+import VerifyProfile1 from "./VerifyProfile1";
 
 const ProfileHeaderSummary: React.FC = ()=>{
     const [showVerifyProfileModal, setShowVerifyProfileModal] = useState(false);
+    const [showVerifyProfile1Modal, setShowVerifyProfile1Modal] = useState(false);
     const [showVerifyProfile2Modal, setShowVerifyProfile2Modal] = useState(false);
     const [showVerifyProfile3Modal, setShowVerifyProfile3Modal] = useState(false);
     const applicationContext = useContext(ApplicationContext)
 
     const handleVerifyProfileClose = () => setShowVerifyProfileModal(false);
     const handleVerifyProfileShow = () => setShowVerifyProfileModal(true);
+
+    const handleVerifyProfile1Close = () => setShowVerifyProfile1Modal(false);
+    const handleVerifyProfile1Show = () => setShowVerifyProfile1Modal(true);
 
     const handleVerifyProfile2Close = () => setShowVerifyProfile2Modal(false);
     const handleVerifyProfile2Show = () => setShowVerifyProfile2Modal(true);
@@ -20,8 +25,12 @@ const ProfileHeaderSummary: React.FC = ()=>{
     const handleVerifyProfile3Show = () => setShowVerifyProfile3Modal(true);
 
     const proceed = (page: number)=>{
-      if(page==2){
+      if(page==1){
         handleVerifyProfileClose()
+        handleVerifyProfile1Show()
+      }
+      if(page==2){
+        handleVerifyProfile1Close()
         handleVerifyProfile2Show()
       }
       if(page==3){
@@ -139,6 +148,7 @@ const ProfileHeaderSummary: React.FC = ()=>{
         </div>
       </div>
     </div>
+    <VerifyProfile1 show={showVerifyProfile1Modal} handleClose={handleVerifyProfile1Close} proceed={proceed} />
     <VerifyProfile show={showVerifyProfileModal} handleClose={handleVerifyProfileClose} proceed={proceed} />
     <VerifyProfile2 show={showVerifyProfile2Modal} handleClose={handleVerifyProfile2Close} proceed={proceed}/>
     <VerifyProfile3 show={showVerifyProfile3Modal} handleClose={handleVerifyProfile3Close}/>
