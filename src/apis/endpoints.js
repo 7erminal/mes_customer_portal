@@ -4,7 +4,8 @@
 // const bulkUploadBaseUrl = `http://127.0.0.1:8001`
 const authenticationBaseUrl = `http://185.249.227.127:8010`;
 const customerBaseUrl = `http://185.249.227.127:8013`;
-const businessBaseUrl = `http://185.249.227.127:8011`
+const businessBaseUrl = `http://185.249.227.127:8011`;
+const bulkUploadBaseUrl = `http://185.249.227.127:8012`;
 
 const authenticationApiEndpoints = `${authenticationBaseUrl}/v1`;
 const customerApiEndpoints = `${customerBaseUrl}/v1`;
