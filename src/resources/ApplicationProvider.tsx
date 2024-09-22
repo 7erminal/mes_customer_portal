@@ -76,8 +76,7 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
     }
   }
 
-  const login = async (e: React.FormEvent<HTMLFormElement>)=>{
-    e.preventDefault()
+  const login = async ()=>{
     setLoading(true)
 
     let returnval = false;
@@ -106,6 +105,7 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
                 setUser(response.data.User)
                 setIsUserDataLoaded(true)
                 sessionStorage.setItem("user_username", username)
+                sessionStorage.setItem("isLoggedIn", "true")
                 returnval = true
             } else {
               console.log("Authentication failed")
@@ -138,8 +138,7 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
 
     }
 
-    const registerUser = async (e: React.FormEvent<HTMLFormElement>)=>{
-      e.preventDefault()
+    const registerUser = async ()=>{
       let returnval = false;
       console.log("Register user called")
       console.log(`full name is ${fullname}`)
@@ -224,6 +223,10 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
         console.log("Error returned is ... ")
         console.log(error)
       })
+    }
+
+    const toggleLoggedIn = ()=>{
+      getUserDetails()
     }
 
     const clearForm = ()=>{
@@ -312,7 +315,8 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
             userIdFile,
             setUserIdFile,
             notificationHandler,
-            setNotificationHandler
+            setNotificationHandler,
+            toggleLoggedIn
           }}>
           {children}
         </ApplicationContext.Provider>

@@ -14,7 +14,8 @@ const LoginPage: React.FC = ()=>{
     const navigate = useNavigate()
 
     const login = async (e: React.FormEvent<HTMLFormElement>)=>{
-        const resp = await applicationContext?.login(e)
+        e.preventDefault()
+        const resp = await applicationContext?.login()
 
         if(resp==true){
             navigate('/')

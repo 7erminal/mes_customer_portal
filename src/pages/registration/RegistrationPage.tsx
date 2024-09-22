@@ -34,7 +34,8 @@ const RegistrationPage: React.FC = ()=>{
     },[])
 
     const register = async (e: React.FormEvent<HTMLFormElement>)=>{
-        const resp = await applicationContext?.registerUser(e)
+        e.preventDefault()
+        const resp = await applicationContext?.registerUser()
 
         if(resp==true){
             navigate('/login')

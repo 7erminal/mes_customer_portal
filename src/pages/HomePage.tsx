@@ -8,8 +8,14 @@ const HomePage: React.FC = ()=>{
     const navigate = useNavigate()
 
     useEffect(()=>{
-        applicationContext?.user?.IsVerified == false ?
-        navigate('/profile') : ''
+        if(sessionStorage.getItem("isLoggedIn") == null || sessionStorage.getItem("isLoggedIn") != "true"){
+            navigate("/login");
+          } else {
+            console.log("Not null status. User is logged in")
+            // applicationContext?.toggleLoggedIn();
+            applicationContext?.user?.IsVerified == false ?
+            navigate('/profile') : ''
+          }
     },[])
 
     return <>

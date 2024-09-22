@@ -10,7 +10,7 @@ export type ApplicationContextProps = {
     errorMessage: string
     showSuccessMessage: boolean
     showErrorMessage: boolean
-    login: (e: React.FormEvent<HTMLFormElement>)=>Promise<boolean>
+    login: ()=>Promise<boolean>
     setUsername: Dispatch<SetStateAction<string>>
     setPassword: Dispatch<SetStateAction<string>>
     setSuccessMessage: Dispatch<SetStateAction<string>>
@@ -28,9 +28,10 @@ export type ApplicationContextProps = {
     setGender: Dispatch<SetStateAction<string>>
     setDob: Dispatch<SetStateAction<string>>
     setPhoneNumber: Dispatch<SetStateAction<string>>
-    registerUser: (e: React.FormEvent<HTMLFormElement>)=>Promise<boolean>
+    registerUser: ()=>Promise<boolean>
     logout: ()=>void,
     getUserDetails: ()=>Promise<void>
+    toggleLoggedIn: ()=>void
 
     companyName: string
     setCompanyName: Dispatch<SetStateAction<string>>

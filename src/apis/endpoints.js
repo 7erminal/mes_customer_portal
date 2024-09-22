@@ -1,9 +1,10 @@
 // const authenticationBaseUrl = `http://localhost:8080`;
 // const customerBaseUrl = `http://localhost:8083`;
-// const businessBaseUrl = `http://127.0.0.1:8000`
-const authenticationBaseUrl = `http://15.236.128.186:8010`;
-const customerBaseUrl = `http://15.236.128.186:8013`;
-const businessBaseUrl = `http://15.236.128.186:8011`
+// const businessBaseUrl = `http://127.0.0.1:8000`;
+// const bulkUploadBaseUrl = `http://127.0.0.1:8001`
+const authenticationBaseUrl = `http://185.249.227.127:8010`;
+const customerBaseUrl = `http://185.249.227.127:8013`;
+const businessBaseUrl = `http://185.249.227.127:8011`
 
 const authenticationApiEndpoints = `${authenticationBaseUrl}/v1`;
 const customerApiEndpoints = `${customerBaseUrl}/v1`;
@@ -23,7 +24,9 @@ const authenticateLocal = `${authenticationApiEndpoints}/auth`;
 // AUTHENTICATION OAUTH
 const authenticateOAuth = `${authenticationApiEndpoints}/oauth`;
 // ONBORD
-const onboardBaseUrl = `${businessBaseUrl}/api`
+const onboardBaseUrl = `${businessBaseUrl}/api`;
+// BULK SMS
+const bulkServiceBaseUrl = `${bulkUploadBaseUrl}/api`
 
 export const ROUTES = {
     
@@ -44,7 +47,10 @@ export const ROUTES = {
     onboard: `${onboardBaseUrl}/onboard/business-details/`,
 
     // GET USER USING USERNAME
-    getUserByUsername: (username) => `${users}/get-user-by-username/${username}`
+    getUserByUsername: (username) => `${users}/get-user-by-username/${username}`,
+
+    // SCHEDULE CAMPAIGN
+    scheduleCampaign: `${bulkServiceBaseUrl}/bulk/schedule/`,
 }
 
 
