@@ -1,17 +1,14 @@
 import React from "react";
 import SideMenu from "./SideMenu";
 import HeadNav from "./HeadNav";
-import { Col, Row } from "react-bootstrap";
-import PrimaryButton from "./widgets/PrimaryButton";
-import { useNavigate } from "react-router-dom";
-import Campaigns from "./Campaigns";
+import CreateCampaign from "./CreateCampaign";
+import { Row } from "react-bootstrap";
 
 type Props = {
     page: string
 }
 
-const CampaignsContent: React.FC<Props> = ({page})=>{
-    const navigate = useNavigate()
+const CreateCampaignsContent: React.FC<Props> = ({page})=>{
     return <>
         <SideMenu page={page} />
         <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -108,14 +105,11 @@ const CampaignsContent: React.FC<Props> = ({page})=>{
         </div>
       </div>
                 <Row className="my-2">
-                  <Col>
-                    <PrimaryButton title="Create Campaign" type="button" navigateTo={()=>{ navigate('/create-campaign')}} />
-                  </Col>
-                    <Campaigns />
+                    <CreateCampaign />
                 </Row>
             </div>
         </main>
         </>
 }
 
-export default CampaignsContent
+export default CreateCampaignsContent

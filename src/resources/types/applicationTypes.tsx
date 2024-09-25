@@ -82,3 +82,19 @@ export type NotificationHandler = {
     path: string
     action: ()=>void
 }
+
+export type Campaign = {
+    active: number
+    campaignId: number
+    created_at: string
+    message: string
+    recipient_email: string
+    title: string
+    recipient_file: string
+    recipient_number: string
+    scheduledTime: string
+    type: string
+    updated_at: string
+    created_by: number
+    updated_by: number
+}

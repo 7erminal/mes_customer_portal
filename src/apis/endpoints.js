@@ -52,6 +52,9 @@ export const ROUTES = {
 
     // SCHEDULE CAMPAIGN
     scheduleCampaign: `${bulkServiceBaseUrl}/bulk/schedule/`,
+
+    // GET CAMPAIGNS
+    getCampaigns: `${bulkServiceBaseUrl}/get-campaigns`,
 }
 
 

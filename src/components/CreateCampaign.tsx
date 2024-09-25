@@ -134,7 +134,7 @@ const CreateCampaign: React.FC = ()=>{
             <Col>
                 <Form.Check // prettier-ignore
                     type="checkbox"
-                    id="checkbox"
+                    id="checkbox2"
                     label="Email"
                     checked={email}
                     onChange={()=>setEmail(!email)}

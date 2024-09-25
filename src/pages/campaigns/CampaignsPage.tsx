@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import CampaignsContent from "../components/CampaignsContent";
-import ApplicationContext from "../resources/ApplicationContext.js";
+import CampaignsContent from "../../components/CampaignsContent.js";
+import ApplicationContext from "../../resources/ApplicationContext.js";
 import { useNavigate } from "react-router-dom";
 
 const CampaignsPage: React.FC = ()=>{
@@ -18,9 +18,9 @@ const CampaignsPage: React.FC = ()=>{
           }
     },[])
 
-    return <>
+    return <div className="my-4">
     <CampaignsContent page="campaigns" />
-    </>
+    </div>
 }
 
 export default CampaignsPage;

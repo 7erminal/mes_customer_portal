@@ -8,9 +8,10 @@ import LoginPage from "./pages/login/LoginPage";
 import RegistrationPage from "./pages/registration/RegistrationPage";
 import Loading from "./components/widgets/Loading";
 import ApplicationContext from "./resources/ApplicationContext";
-import CampaignsPage from "./pages/CampaignsPage";
+import CampaignsPage from "./pages/campaigns/CampaignsPage";
 import NotificationModal from "./components/widgets/NotificationModal";
 import { useNavigate } from "react-router-dom";
+import CreateCampaignPage from "./pages/campaigns/CreateCampaignPage";
 
 const ARoutes: React.FC = () => {
   const applicationContext = useContext(ApplicationContext)
@@ -40,6 +41,7 @@ const handleErrorMessageClose = ()=>{
                   <Route path='/' element={<HomePage />} />
                   <Route path='/profile' element={<ProfilePage />} />
                   <Route path='/campaigns' element={<CampaignsPage />} />
+                  <Route path='/create-campaign' element={<CreateCampaignPage />} />
                   <Route path='/login' element={<LoginPage />} />
                   <Route path='/sign-up' element={<RegistrationPage />} />
               </Routes>
