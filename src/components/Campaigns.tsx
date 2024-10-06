@@ -78,7 +78,7 @@ const Campaigns: React.FC = ()=>{
                               <p className="text-xs text-secondary mb-0">{cpg.recipient_number}</p>
                             </td>
                             <td className="align-middle text-center text-sm">
-                              <span className={class_}>{cpg.active==0 ? "Unprocessed" : cpg.active==2 ? "Pending" : cpg.active==4 ? "Errors occurred" : cpg.active==0 ? "Success" : cpg.active}</span>
+                              <span className={class_}>{cpg.active==0 ? "Unprocessed" : cpg.active==2 ? "Pending" : cpg.active==4 ? "Errors occurred" : cpg.active==1 ? "Success" : cpg.active}</span>
                             </td>
                             <td className="align-middle text-center">
                               <span className="text-secondary text-xs font-weight-bold">{cpg.scheduledTime}</span>

@@ -47,6 +47,8 @@ const CreateCampaign: React.FC = ()=>{
 
         let proceed = true
 
+        console.log("Delivery time set is "+deliveryTime)
+
         if(sms==true && email==false){
             formData.append('type', 'SMS')
         } else if(email==true && sms==false){
