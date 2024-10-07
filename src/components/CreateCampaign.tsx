@@ -120,80 +120,84 @@ const CreateCampaign: React.FC = ()=>{
     }
 
     return <div className="create-campaign">
-        <Row className="my-4">
-            <Col xs={12} md={12} className="my-2">
-                <b>Select delivery method</b>
-            </Col>
-            <Col>
-                <Form.Check // prettier-ignore
-                    type="checkbox"
-                    id="checkbox"
-                    label="SMS"
-                    checked={sms}
-                    onChange={()=>setSms(!sms)}
-                />
-            </Col>
-            <Col>
-                <Form.Check // prettier-ignore
-                    type="checkbox"
-                    id="checkbox2"
-                    label="Email"
-                    checked={email}
-                    onChange={()=>setEmail(!email)}
-                />
+        <Row>
+            <Col xs={12} md={8}>
+                <Row className="my-4">
+                    <Col xs={12} md={12} className="my-2">
+                        <b>Select delivery method</b>
+                    </Col>
+                    <Col>
+                        <Form.Check // prettier-ignore
+                            type="checkbox"
+                            id="checkbox"
+                            label="SMS"
+                            checked={sms}
+                            onChange={()=>setSms(!sms)}
+                        />
+                    </Col>
+                    <Col>
+                        <Form.Check // prettier-ignore
+                            type="checkbox"
+                            id="checkbox2"
+                            label="Email"
+                            checked={email}
+                            onChange={()=>setEmail(!email)}
+                        />
+                    </Col>
+                </Row>
+                <Form onSubmit={createCampaign}>
+                    <FloatingLabel
+                        controlId="floatingInputName"
+                        label="Campaign name"
+                        className="mb-3"
+                        style={{backgroundColor: '#F0FBFF'}}
+                    >
+                        <Form.Control type="text" value={campaignName} onChange={(e)=>setCampaignName(e.target.value)} placeholder="Campaign name" className="custom-input-login-r" required/>
+                    </FloatingLabel>
+                    <FloatingLabel
+                        controlId="floatingInputMessage"
+                        label="Message"
+                        className="mb-3"
+                        style={{backgroundColor: '#F0FBFF'}}
+                    >
+                        <Form.Control as="textarea" value={message} onChange={(e)=>setMessage(e.target.value)} style={{ height: '120px' }} placeholder="Message" className="custom-input-login-r" required/>
+                    </FloatingLabel>
+                    <FloatingLabel
+                        controlId="floatingInputDatetime"
+                        label="Schedule time of delivery"
+                        className="mb-3"
+                        style={{backgroundColor: '#F0FBFF'}}
+                    >
+                        <Form.Control value={deliveryTime} onChange={(e)=>setDeliveryTime(e.target.value)} className="custom-input-login-r my-3" aria-label="Date and time" type="datetime-local" required/>
+                    </FloatingLabel>
+                    <Form.Check // prettier-ignore
+                        type="switch"
+                        id="custom-switch"
+                        label={checkLabel}
+                        className="mb-3"
+                        checked={singleRecipient}
+                        onChange={()=>setSingleRecipient(!singleRecipient)}
+                    />
+                    {
+                        singleRecipient == false ? 
+                        <Form.Group controlId="formFile" className="mb-3">
+                            <Form.Label>Upload recipients</Form.Label>
+                            <Form.Control ref={fileRef} onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setRecipientFile(e.target.files![0])} className="custom-input-login-r" type="file" required />
+                        </Form.Group> : 
+                        <FloatingLabel
+                            controlId="floatingInputName"
+                            label="Recipient number"
+                            className="mb-3"
+                            style={{backgroundColor: '#F0FBFF'}}
+                        >
+                            <Form.Control type="text" value={recipientNumber} onChange={(e)=>setRecipientNumber(e.target.value)} placeholder="Recipient number" className="custom-input-login-r" required/>
+                        </FloatingLabel>
+                    }
+                    <div className="my-4"></div>
+                    <SecondaryButton title="Schedule" type="submit" navigateTo={()=>{}} />
+                </Form>
             </Col>
         </Row>
-        <Form onSubmit={createCampaign}>
-            <FloatingLabel
-                controlId="floatingInputName"
-                label="Campaign name"
-                className="mb-3"
-                style={{backgroundColor: '#F0FBFF'}}
-            >
-                <Form.Control type="text" value={campaignName} onChange={(e)=>setCampaignName(e.target.value)} placeholder="Campaign name" className="custom-input-login-r" required/>
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="floatingInputMessage"
-                label="Message"
-                className="mb-3"
-                style={{backgroundColor: '#F0FBFF'}}
-            >
-                <Form.Control as="textarea" value={message} onChange={(e)=>setMessage(e.target.value)} style={{ height: '120px' }} placeholder="Message" className="custom-input-login-r" required/>
-            </FloatingLabel>
-            <FloatingLabel
-                controlId="floatingInputDatetime"
-                label="Schedule time of delivery"
-                className="mb-3"
-                style={{backgroundColor: '#F0FBFF'}}
-            >
-                <Form.Control value={deliveryTime} onChange={(e)=>setDeliveryTime(e.target.value)} className="custom-input-login-r my-3" aria-label="Date and time" type="datetime-local" required/>
-            </FloatingLabel>
-            <Form.Check // prettier-ignore
-                type="switch"
-                id="custom-switch"
-                label={checkLabel}
-                className="mb-3"
-                checked={singleRecipient}
-                onChange={()=>setSingleRecipient(!singleRecipient)}
-            />
-            {
-                singleRecipient == false ? 
-                <Form.Group controlId="formFile" className="mb-3">
-                    <Form.Label>Upload recipients</Form.Label>
-                    <Form.Control ref={fileRef} onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setRecipientFile(e.target.files![0])} className="custom-input-login-r" type="file" required />
-                </Form.Group> : 
-                <FloatingLabel
-                    controlId="floatingInputName"
-                    label="Recipient number"
-                    className="mb-3"
-                    style={{backgroundColor: '#F0FBFF'}}
-                >
-                    <Form.Control type="text" value={recipientNumber} onChange={(e)=>setRecipientNumber(e.target.value)} placeholder="Recipient number" className="custom-input-login-r" required/>
-                </FloatingLabel>
-            }
-            <div className="my-4"></div>
-            <SecondaryButton title="Schedule" type="submit" navigateTo={()=>{}} />
-        </Form>
     </div>
 }
 

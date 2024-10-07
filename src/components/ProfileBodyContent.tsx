@@ -166,16 +166,16 @@ const ProfileBodyContent: React.FC = ()=>{
         </div>
       </div> */}
 
-        <div className="col-12 mt-4">
+        {/* <div className="col-12 mt-4">
             <div className="card mb-4">
                 <div className="card-body p-3">
                     <div className="row">
                         <div className="col-xl-3 col-md-6 mb-xl-0 mb-4">
                             <div className="card card-blog card-plain">
                                 <div className="position-relative">
-                                    {/* <div className="d-block img-fluid shadow border-radius-xl">
+                                    <div className="d-block img-fluid shadow border-radius-xl">
 
-                                    </div> */}
+                                    </div>
                                     <a className="d-block shadow-xl border-radius-xl">
                                     <img src="/assets/img/home-decor-1.jpg" alt="img-blur-shadow" className="img-fluid shadow border-radius-xl" />
                                     </a>
@@ -191,7 +191,7 @@ const ProfileBodyContent: React.FC = ()=>{
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
 
       {/* <div className="col-12 mt-4">
         <div className="card mb-4">

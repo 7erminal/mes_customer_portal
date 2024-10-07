@@ -18,7 +18,7 @@ const CampaignsPage: React.FC = ()=>{
           }
     },[])
 
-    return <div className="my-4">
+    return <div>
     <CampaignsContent page="campaigns" />
     </div>
 }

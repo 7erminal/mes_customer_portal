@@ -16,6 +16,7 @@
     border-radius: 1px;
     transition: 0.3s ease-out;
     color: rgb(16, 1, 60);
+    padding: 0.6em 1.2em;
 }
 
 .primary-button:hover{
@@ -31,6 +32,7 @@
     border-radius: 1px;
     transition: 0.3s ease-out;
     color: rgb(16, 1, 60);
+    padding: 0.6em 1.2em;
 }
 
 .secondary-button:hover{
@@ -44,6 +46,7 @@
     border: 2px rgb(16, 1, 60) solid;
     border-radius: 1px;
     transition: 0.3s ease-out;
+    padding: 0.6em 1.2em;
     color: white;
 }
 
@@ -146,8 +149,13 @@
 }
 
 .create-campaign{
-    height: 480px;
+    /* height: 480px; */
     color: black;
     /* background-color: gray; */
     width: 100%;
+    margin-bottom: 40px;
+}
+
+.body-content{
+    background-color: #4ddaab;
 }
