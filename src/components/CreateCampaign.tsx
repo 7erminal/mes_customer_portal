@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import SecondaryButton from "./widgets/SecondaryButton";
 import ApplicationContext from "../resources/ApplicationContext";
+import { CSVLink } from "react-csv";
 // @ts-ignore
 import Api from "../apis/apis.js"
 // @ts-ignore
@@ -87,9 +88,16 @@ const CreateCampaign: React.FC = ()=>{
                         setSms(false)
                         setEmail(false)
                         fileRef.current != null ? fileRef.current!.value = "" : ''
+                    } else {
+                        applicationContext?.setErrorMessage(response.data.StatusDesc)
+                        applicationContext?.setShowErrorMessage(true)
+                        applicationContext?.setNotificationHandler({action: ()=>{
+                        applicationContext?.setShowErrorMessage(false)
+                        applicationContext?.setErrorMessage("")
+                      }, path: ''})
                     }
                 } else {
-                    applicationContext?.setErrorMessage(response.data.StatusDesc)
+                    applicationContext?.setErrorMessage("An error occurred. Please check request and try again.")
                     applicationContext?.setShowErrorMessage(true)
                     applicationContext?.setNotificationHandler({action: ()=>{
                         applicationContext?.setShowErrorMessage(false)
@@ -181,7 +189,7 @@ const CreateCampaign: React.FC = ()=>{
                     {
                         singleRecipient == false ? 
                         <Form.Group controlId="formFile" className="mb-3">
-                            <Form.Label>Upload recipients</Form.Label>
+                            <Form.Label>Upload recipients (<span className="download-sample"><CSVLink data={[["Recipients"]]} filename="recipients.csv" >Download sample file</CSVLink></span>)</Form.Label>
                             <Form.Control ref={fileRef} onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setRecipientFile(e.target.files![0])} className="custom-input-login-r" type="file" required />
                         </Form.Group> : 
                         <FloatingLabel

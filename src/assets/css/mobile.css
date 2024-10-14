@@ -159,3 +159,7 @@
 .body-content{
     background-color: #4ddaab;
 }
+
+.download-sample:hover{
+    cursor: pointer;
+}

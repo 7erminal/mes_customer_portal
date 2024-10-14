@@ -2,10 +2,10 @@
 // const customerBaseUrl = `http://localhost:8083`;
 // const businessBaseUrl = `http://127.0.0.1:8000`;
 // const bulkUploadBaseUrl = `http://127.0.0.1:8001`
-const authenticationBaseUrl = `http://185.249.227.127:8010`;
-const customerBaseUrl = `http://185.249.227.127:8013`;
-const businessBaseUrl = `http://185.249.227.127:8011`;
-const bulkUploadBaseUrl = `http://185.249.227.127:8012`;
+const authenticationBaseUrl = `https://authentication-service.mestechgh.com`;
+const customerBaseUrl = `https://customer-management-service.mestechgh.com`;
+const onboardServiceBaseUrl = `https://onboarding-service.mestechgh.com`;
+const bulkUploadBaseUrl = `https://upload-service.mestechgh.com`;
 
 const authenticationApiEndpoints = `${authenticationBaseUrl}/v1`;
 const customerApiEndpoints = `${customerBaseUrl}/v1`;
@@ -25,7 +25,7 @@ const authenticateLocal = `${authenticationApiEndpoints}/auth`;
 // AUTHENTICATION OAUTH
 const authenticateOAuth = `${authenticationApiEndpoints}/oauth`;
 // ONBORD
-const onboardBaseUrl = `${businessBaseUrl}/api`;
+const onboardBaseUrl = `${onboardServiceBaseUrl}/api`;
 // BULK SMS
 const bulkServiceBaseUrl = `${bulkUploadBaseUrl}/api`
 

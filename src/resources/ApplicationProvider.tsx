@@ -42,7 +42,6 @@ export const ApplicationProvider: React.FC<{children: ReactNode}> = ({children})
 
   const [notificationHandler, setNotificationHandler] = useState<NotificationHandler>()
 
-
   // Check if user is logged in and has data
   useEffect(()=>{
     if(isUserDataLoaded==false && sessionStorage.getItem("user_username") != null){
